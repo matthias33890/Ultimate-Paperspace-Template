@@ -43,7 +43,7 @@ if [[ -z "$INSTALL_ONLY" ]]; then
   log "Starting Langflow"
   mkdir -p $REPO_DIR
   cd $REPO_DIR
-  PYTHONUNBUFFERED=1 service_loop "python -m langflow --port $LANGFLOW_PORT ${EXTRA_LANGFLOW_ARGS}" > $LOG_DIR/langflow.log 2>&1 &
+  PYTHONUNBUFFERED=1 service_loop "langflow run --port $LANGFLOW_PORT ${EXTRA_LANGFLOW_ARGS}" > $LOG_DIR/langflow.log 2>&1 &
   echo $! > /tmp/langflow.pid
 fi
 
