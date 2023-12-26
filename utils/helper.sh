@@ -155,7 +155,7 @@ minio_sync(){
   done
 }
 
-llm_model_downlaod(){
+llm_model_download(){
   current_dir=$(dirname "$(realpath "$0")")
   chmod +x $current_dir/hfdownloader
 
