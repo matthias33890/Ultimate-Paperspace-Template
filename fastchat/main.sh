@@ -23,6 +23,7 @@ if [[ "$REINSTALL_FASTCHAT" || ! -f "/tmp/fastchat.prepared" ]]; then
 
     pip install --upgrade pip
     pip install --upgrade wheel setuptools
+    pip install torch torchaudio torchvideo
     
     pip3 install fschat bitsandbytes==0.38.0 safetensors==0.3.1
 
