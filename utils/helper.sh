@@ -156,11 +156,13 @@ minio_sync(){
 }
 
 llm_model_download(){
-  current_dir=$(dirname "$(realpath "$0")")
-  chmod +x $current_dir/hfdownloader
+  # Pfad zur hfdownloader direkt angeben
+  hfdownloader_script="/notebooks/utils/hfdownloader"
+
+  chmod +x "$hfdownloader_script"
 
   if ! [ -v "MODEL_DIR" ]; then
-      source $current_dir/../.env
+      source "$current_dir/../.env"
       export MODEL_DIR="$DATA_DIR/llm-models"
   fi
 
@@ -168,7 +170,7 @@ llm_model_download(){
   IFS=',' read -ra models <<< "$LLM_MODEL_TO_DOWNLOAD"
   for model in "${models[@]}"
   do
-      $current_dir/hfdownloader -m $model -s $MODEL_DIR 2>&1 > /dev/null
+      "$hfdownloader_script" -m $model -s $MODEL_DIR 2>&1 > /dev/null
   done
 
   echo "### Finished Model Download ###"
