@@ -4,7 +4,7 @@ set -e
 current_dir=$(dirname "$(realpath "$0")")
 cd $current_dir
 source .env
-
+Source $current_dir/../utils/helper.sh
 # Set up a trap to call the error_exit function on ERR signal
 trap 'error_exit "### ERROR ###"' ERR
 
@@ -51,7 +51,7 @@ if [[ -z "$SKIP_MODEL_DOWNLOAD" ]]; then
   log "Downloading Model for FastChat"
   
   mkdir -p $MODEL_DIR
-  bash $current_dir/../utils/llm_model_download.sh
+  llm_model_download
 
   model_paths=""
   model_args=()
