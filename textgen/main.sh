@@ -78,7 +78,7 @@ if [[ -z "$SKIP_MODEL_DOWNLOAD" ]]; then
   fi
 
 
-  llm_model_download
+  #llm_model_download
   log "Finished Downloading Models for Text generation Webui"
 else
   log "Skipping Model Download for Text generation Webui"
